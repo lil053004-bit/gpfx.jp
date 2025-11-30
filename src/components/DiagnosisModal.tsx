@@ -93,6 +93,12 @@ export default function DiagnosisModal({
 
         <div ref={contentRef} className="overflow-y-auto max-h-[calc(90vh-180px)] px-6 py-6">
           <div className="mb-6">
+            <div className="mb-4 p-4 rounded-xl border-2" style={{ backgroundColor: 'rgba(185, 28, 28, 0.2)', borderColor: 'rgba(239, 68, 68, 0.5)' }}>
+              <p className="text-xs text-red-300 leading-relaxed">
+                <strong className="text-red-400">⚠️ 免責事項：</strong>
+                この分析は参考情報のみであり、投資助言ではありません。AI分析の正確性は保証されません。投資判断は必ずご自身の責任で行ってください。
+              </p>
+            </div>
 
             <div className="rounded-xl p-6 shadow-inner relative" style={{ backgroundColor: 'rgba(55, 65, 81, 0.5)', backdropFilter: 'blur(5px)' }}>
               <div className="prose prose-sm max-w-none">

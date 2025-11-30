@@ -3,6 +3,8 @@ import RadialDarkBackground from '../components/RadialDarkBackground';
 import AnimatedCatRobot from '../components/AnimatedCatRobot';
 import EnhancedTitle from '../components/EnhancedTitle';
 import DisclaimerSection from '../components/DisclaimerSection';
+import DisclaimerAcknowledgmentModal from '../components/DisclaimerAcknowledgmentModal';
+import LineConversionConfirmModal from '../components/LineConversionConfirmModal';
 import SimpleInputContainer from '../components/SimpleInputContainer';
 import ModernStockInput from '../components/ModernStockInput';
 import ModernActionButton from '../components/ModernActionButton';
@@ -24,6 +26,9 @@ export default function RefactoredHome() {
   const [stockData, setStockData] = useState<StockData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [disclaimerAcknowledged, setDisclaimerAcknowledged] = useState(false);
+  const [showLineConversionModal, setShowLineConversionModal] = useState(false);
+  const [pendingLineUrl, setPendingLineUrl] = useState<string>('');
 
   const [diagnosisState, setDiagnosisState] = useState<DiagnosisState>('initial');
   const [analysisResult, setAnalysisResult] = useState<string>('');
@@ -367,11 +372,18 @@ export default function RefactoredHome() {
       }
 
       const lineUrl = data.link.redirect_url;
+      setPendingLineUrl(lineUrl);
+      setShowLineConversionModal(true);
+    } catch (error) {
+      console.error('LINE conversion error:', error);
+      alert('操作に失敗しました。しばらくしてからもう一度お試しください。');
+    }
+  };
 
-      // Track conversion using sendBeacon for reliable tracking
+  const confirmLineConversion = async () => {
+    try {
       trackConversion();
 
-      // Use sendBeacon for non-blocking tracking
       if (navigator.sendBeacon) {
         const trackingData = JSON.stringify({
           sessionId: sessionStorage.getItem('sessionId') || '',
@@ -383,7 +395,6 @@ export default function RefactoredHome() {
         });
         navigator.sendBeacon('/api/tracking/event', trackingData);
       } else {
-        // Fallback for browsers that don't support sendBeacon
         await userTracking.trackConversion({
           gclid: urlParams.gclid
         });
@@ -391,11 +402,10 @@ export default function RefactoredHome() {
 
       console.log('LINE conversion tracked successfully');
 
-      // Immediate redirect without delay - Google Ads compliant
-      window.location.href = lineUrl;
+      window.location.href = pendingLineUrl;
     } catch (error) {
-      console.error('LINE conversion error:', error);
-      alert('操作に失敗しました。しばらくしてからもう一度お試しください。');
+      console.error('LINE conversion tracking error:', error);
+      window.location.href = pendingLineUrl;
     }
   };
 
@@ -456,6 +466,14 @@ export default function RefactoredHome() {
   return (
     <div className="min-h-screen relative flex flex-col overflow-visible">
       <RadialDarkBackground />
+
+      <DisclaimerAcknowledgmentModal onAcknowledge={() => setDisclaimerAcknowledged(true)} />
+
+      <LineConversionConfirmModal
+        isOpen={showLineConversionModal}
+        onConfirm={confirmLineConversion}
+        onCancel={() => setShowLineConversionModal(false)}
+      />
 
       <div className="relative z-10 flex-1 flex flex-col overflow-visible">
         {!showLoadingScene ? (

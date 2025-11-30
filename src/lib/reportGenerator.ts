@@ -125,7 +125,7 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
           }),
 
           new Paragraph({
-            text: '免責事項',
+            text: '重要な免責事項',
             heading: HeadingLevel.HEADING_2,
             spacing: { before: 400, after: 200 }
           }),
@@ -133,8 +133,89 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
           new Paragraph({
             children: [
               new TextRun({
-                text: '本分析は公開されている市場データに基づく情報提供のみを目的としており、特定の投資判断を推奨または助言するものではありません。株式投資には価格変動リスク、信用リスク、流動性リスクなどが伴い、投資元本を割り込む可能性があります。最終的な投資判断は、必ずご自身の責任において行ってください。',
-                size: 20,
+                text: '⚠️ サービスの性質について',
+                bold: true,
+                size: 24,
+                color: 'DC2626'
+              })
+            ],
+            spacing: { after: 150 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: '本サービスは情報提供のみを目的としており、投資助言・投資勧誘を行うものではありません。当サービスは金融商品取引業者ではなく、金融商品取引法第29条の登録を受けていません。',
+                size: 22,
+                color: '666666'
+              })
+            ],
+            spacing: { after: 200 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: '⚠️ AI分析の限界について',
+                bold: true,
+                size: 24,
+                color: 'DC2626'
+              })
+            ],
+            spacing: { after: 150 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: 'AIによる分析結果は参考情報であり、その正確性・完全性・適時性は保証されません。AI技術には限界があり、予期せぬ市場変動や経済事象を正確に予測できない場合があります。過去のデータに基づく分析は将来の結果を保証するものではありません。',
+                size: 22,
+                color: '666666'
+              })
+            ],
+            spacing: { after: 200 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: '⚠️ 投資リスクについて',
+                bold: true,
+                size: 24,
+                color: 'DC2626'
+              })
+            ],
+            spacing: { after: 150 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: '株式投資には価格変動リスク、信用リスク、流動性リスク等が伴い、投資元本を大きく割り込む可能性があります。',
+                size: 22,
+                color: '666666'
+              })
+            ],
+            spacing: { after: 200 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: '⚠️ 投資判断の責任',
+                bold: true,
+                size: 24,
+                color: 'DC2626'
+              })
+            ],
+            spacing: { after: 150 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: '最終的な投資判断は、必ず利用者ご自身の責任において行ってください。本サービスの利用により生じたいかなる損害についても、当社は一切の責任を負いません。実際に投資を行う際は、証券会社等の金融商品取引業者にご相談されることをお勧めします。',
+                size: 22,
                 color: '666666'
               })
             ],

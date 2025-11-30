@@ -1,4 +1,4 @@
-import { Shield, Lock, Zap, TrendingUp } from 'lucide-react';
+import { Shield, Lock, Zap, Info } from 'lucide-react';
 
 export default function TrustBadges() {
   return (
@@ -10,7 +10,7 @@ export default function TrustBadges() {
               <Shield className="w-4 h-4 text-white" />
             </div>
           </div>
-          <p className="text-xs font-bold text-cyan-100 drop-shadow-lg">無料提供</p>
+          <p className="text-xs font-bold text-cyan-100 drop-shadow-lg">情報提供</p>
           <p className="text-[10px] text-cyan-200/80 drop-shadow-lg">登録不要</p>
         </div>
 
@@ -30,18 +30,18 @@ export default function TrustBadges() {
               <Zap className="w-4 h-4 text-white" />
             </div>
           </div>
-          <p className="text-xs font-bold text-teal-100 drop-shadow-lg">迅速分析</p>
+          <p className="text-xs font-bold text-teal-100 drop-shadow-lg">迅速処理</p>
           <p className="text-[10px] text-teal-200/80 drop-shadow-lg">短時間で完了</p>
         </div>
 
         <div className="bg-gradient-to-br from-sky-500/20 to-sky-600/20 backdrop-blur-md border border-sky-400/40 rounded-lg p-3 text-center">
           <div className="flex justify-center mb-2">
             <div className="bg-gradient-to-r from-sky-500 to-sky-600 p-2 rounded-full">
-              <TrendingUp className="w-4 h-4 text-white" />
+              <Info className="w-4 h-4 text-white" />
             </div>
           </div>
-          <p className="text-xs font-bold text-sky-100 drop-shadow-lg">AI分析</p>
-          <p className="text-[10px] text-sky-200/80 drop-shadow-lg">詳細分析</p>
+          <p className="text-xs font-bold text-sky-100 drop-shadow-lg">AI参考情報</p>
+          <p className="text-[10px] text-sky-200/80 drop-shadow-lg">助言ではありません</p>
         </div>
       </div>
     </div>

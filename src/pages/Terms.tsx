@@ -59,6 +59,18 @@ export default function Terms() {
                   当サービスが提供する情報は、投資判断の参考情報として提供されるものであり、投資成果を保証するものではありません。
                 </p>
               </div>
+              <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-4">
+                <p className="text-gray-800 font-semibold mb-2">AI分析の限界について</p>
+                <p className="text-gray-700 leading-relaxed mb-2">
+                  当サービスで使用されるAI技術は、過去のデータやパターンに基づいて分析を行いますが、以下の限界があります：
+                </p>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4 text-sm">
+                  <li>予期せぬ市場変動や経済事象を予測できない場合があります</li>
+                  <li>AIモデルは完全ではなく、誤った分析結果を生成する可能性があります</li>
+                  <li>過去のデータに基づく分析は将来の結果を保証するものではありません</li>
+                  <li>市場の急激な変化に対してリアルタイムで対応できない場合があります</li>
+                </ul>
+              </div>
               <p className="text-gray-700 leading-relaxed">
                 利用者は、自己の責任において投資判断を行うものとし、当サービスの利用により生じた損害について、当社は一切の責任を負いません。
               </p>
@@ -95,13 +107,21 @@ export default function Terms() {
               <h2 className="text-xl font-bold text-gray-900 mb-4">第6条（免責事項）</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
                 当社は、当サービスの内容、品質、正確性、完全性、有用性について、いかなる保証も行いません。
+                特にAI分析結果については、実験的な技術を含むため、その正確性や信頼性を保証することはできません。
               </p>
               <p className="text-gray-700 leading-relaxed mb-3">
                 当サービスの利用により利用者に生じた損害について、当社は一切の責任を負いません。ただし、当社の故意または重過失による場合はこの限りではありません。
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-3">
                 当サービスの提供の遅延、中断、停止、データの消失等について、当社は一切の責任を負いません。
               </p>
+              <div className="bg-slate-100 border border-slate-300 rounded-lg p-4">
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  <strong>投資リスクについて：</strong>
+                  株式投資には価格変動リスク、信用リスク、流動性リスク等が伴い、投資元本を大きく割り込む可能性があります。
+                  利用者は、これらのリスクを十分に理解した上で、自己の判断と責任において投資を行ってください。
+                </p>
+              </div>
             </section>
 
             <section className="mb-8">
