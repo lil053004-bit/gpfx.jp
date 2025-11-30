@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import RadialDarkBackground from '../components/RadialDarkBackground';
 import AnimatedCatRobot from '../components/AnimatedCatRobot';
 import EnhancedTitle from '../components/EnhancedTitle';
-import DisclaimerSection from '../components/DisclaimerSection';
-import DisclaimerAcknowledgmentModal from '../components/DisclaimerAcknowledgmentModal';
 import LineConversionConfirmModal from '../components/LineConversionConfirmModal';
 import SimpleInputContainer from '../components/SimpleInputContainer';
 import ModernStockInput from '../components/ModernStockInput';
@@ -26,7 +24,6 @@ export default function RefactoredHome() {
   const [stockData, setStockData] = useState<StockData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [disclaimerAcknowledged, setDisclaimerAcknowledged] = useState(false);
   const [showLineConversionModal, setShowLineConversionModal] = useState(false);
   const [pendingLineUrl, setPendingLineUrl] = useState<string>('');
 
@@ -467,8 +464,6 @@ export default function RefactoredHome() {
     <div className="min-h-screen relative flex flex-col overflow-visible">
       <RadialDarkBackground />
 
-      <DisclaimerAcknowledgmentModal onAcknowledge={() => setDisclaimerAcknowledged(true)} />
-
       <LineConversionConfirmModal
         isOpen={showLineConversionModal}
         onConfirm={confirmLineConversion}
@@ -481,8 +476,6 @@ export default function RefactoredHome() {
             <AnimatedCatRobot />
 
             <EnhancedTitle />
-
-            <DisclaimerSection />
 
             <SimpleInputContainer>
               <div className="space-y-6">
